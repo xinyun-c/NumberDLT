@@ -45,11 +45,12 @@ public class SpeakerTarget : MonoBehaviour
         TargetAnnouncement.Play();
         yield return new WaitForSeconds(TargetAnnouncement.clip.length);
         audioList[target].Play();
-        yield return new WaitForSeconds(audioList[target].clip.length + 2);
+        yield return new WaitForSeconds(audioList[target].clip.length + 1);
         ReadyStart.Play();
         yield return new WaitForSeconds(ReadyStart.clip.length);
 
         speaker2.SetActive(true);
+        speaker2.GetComponent<AudioSource>().Play();
         for (int i = 1; i <= num; i++)
         {
             responded = false;
@@ -109,6 +110,7 @@ public class SpeakerTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        OVRInput.Update();
         if (!responded) {
             if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, OVRInput.Controller.LTouch) >= 0.9)
             {
