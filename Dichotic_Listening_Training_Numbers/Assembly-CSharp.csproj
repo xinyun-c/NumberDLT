@@ -350,6 +350,7 @@
     <Compile Include="Assets\Scripts\EventManagerDichoticListening.cs" />
     <Compile Include="Assets\Scripts\NumberAudio.cs" />
     <Compile Include="Assets\Scripts\SpeakerTarget.cs" />
+    <None Include="Assets\Sci-Fi Styled Modular Pack\Readme.txt" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\Version1.5\Avatar_PC_SingleComponent.shader" />
     <None Include="Assets\Oculus\Avatar\Samples\CrossPlatform\Readme.txt" />
     <None Include="Assets\Oculus\SampleFramework\Core\CustomHands\Materials\Hands_DiffBump.shader" />
