@@ -13,7 +13,8 @@ public class SpeakerTarget : MonoBehaviour
     public int iter;
     public GameObject player;
     public GameObject manager;
-    
+    public OVRInput.Controller controller;
+
     private bool responded;
     public int correctNumber;
     public int incorrectNumber;
@@ -27,6 +28,7 @@ public class SpeakerTarget : MonoBehaviour
     public AudioSource Win;
 
     public GameObject speaker2;
+    private bool gameStart;
 
 
     // Start is called before the first frame update
@@ -48,6 +50,8 @@ public class SpeakerTarget : MonoBehaviour
         yield return new WaitForSeconds(audioList[target].clip.length + 1);
         ReadyStart.Play();
         yield return new WaitForSeconds(ReadyStart.clip.length);
+
+        gameStart = true;
 
         speaker2.SetActive(true);
         speaker2.GetComponent<AudioSource>().Play();
@@ -111,8 +115,8 @@ public class SpeakerTarget : MonoBehaviour
     void Update()
     {
         OVRInput.Update();
-        if (!responded) {
-            if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, OVRInput.Controller.LTouch) >= 0.9)
+        if (gameStart && !responded) {
+            if (OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, controller) >= 0.9 || OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger, controller) >= 0.9)
             {
                 Debug.Log("A button pressed.");
                 if (target == last_num)
