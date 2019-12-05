@@ -8,6 +8,10 @@ public class EventManagerDichoticListening : MonoBehaviour
     public OVRCameraRig Player;
     public GameObject speaker1;
     public GameObject speaker2;
+    public GameObject lv1;
+    public GameObject lv2;
+    public GameObject lv3;
+    public GameObject lv4;
     public bool gameEnds;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,9 @@ public class EventManagerDichoticListening : MonoBehaviour
         yield return new WaitForSeconds(IntroAudio.clip.length); // wait time
         //supposedly wait for player to set difficulty here
         selectTarget();
+        //select difficulty
+        //play audio to introduce difficulty selection I guess
+
         speaker1.SetActive(true);
     }
 
